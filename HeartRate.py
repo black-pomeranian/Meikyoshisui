@@ -44,12 +44,12 @@ class HeartRateMonitor:
         return interval_mean
             
     def getHeartRate(self):
-        print('Please ready your heart rate monitor.')
-        time.sleep(3)
         
         while True:
             GPIO.wait_for_edge(self.INTERRUPT_PIN, GPIO.RISING)
-            return self._calc_HeartRate_mean()
+            interval = self._calc_HeartRate_mean()
+            print('interval: {}'.format(interval))
+            return interval
             
         
  
