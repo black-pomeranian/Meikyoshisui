@@ -5,6 +5,7 @@ import Valve
 import HeartRate
 
 
+interval = 100000
 
 def valve_motor(heartrate_interval):
     
@@ -29,12 +30,11 @@ def valve_motor(heartrate_interval):
 
 def heartrate_sensor():
     heartrate = HeartRate.HeartRateMonitor()
-    return heartrate.getInterval()
+    interval = heartrate.getInterval()
     
 
 if __name__ == "__main__":
-    interval = 100000
     with ThreadPoolExecutor(max_workers=2) as executor:
         executor.submit(valve_motor(), interval)
-        interval = executor.submit(heartrate_sensor())
+        executor.submit(heartrate_sensor())
     
