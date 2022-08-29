@@ -30,6 +30,7 @@ def valve_motor(heartrate_interval):
 
 def heartrate_sensor():
     heartrate = HeartRate.HeartRateMonitor()
+    global interval
     interval = heartrate.getInterval()
     
 
