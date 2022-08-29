@@ -35,6 +35,6 @@ def heartrate_sensor():
 
 if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers=2) as executor:
-        executor.submit(valve_motor(), interval)
-        executor.submit(heartrate_sensor())
+        executor.submit(valve_motor, interval)
+        executor.submit(heartrate_sensor)
     
