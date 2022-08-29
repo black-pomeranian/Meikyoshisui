@@ -29,7 +29,7 @@ def valve_motor(heartrate_interval):
 
 def heartrate_sensor():
     heartrate = HeartRate.HeartRateMonitor()
-    return heartrate.getHeartRate()
+    return heartrate.getInterval()
     
 
 if __name__ == "__main__":

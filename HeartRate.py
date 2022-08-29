@@ -8,6 +8,7 @@ class HeartRateMonitor:
     MAX_DETECTED_TIMES_COUNT = 20
     MAX_PULSE_INTERVAL = 2.0
     MAX_INTERVALS_COUNT = 10
+    interval = 10000
  
     def __init__(self):
         GPIO.setmode(GPIO.BCM)
@@ -49,8 +50,9 @@ class HeartRateMonitor:
             GPIO.wait_for_edge(self.INTERRUPT_PIN, GPIO.RISING)
             interval = self._calc_HeartRate_mean()
             print('interval: {}'.format(interval))
-            return interval
-            
+
+    def getInterval(self):
+        return self.interval       
         
  
 if __name__ == '__main__':
